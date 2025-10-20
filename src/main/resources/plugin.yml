@@ -1,0 +1,43 @@
+name: XFilesPlugin
+version: 1.0.0
+main: com.yourserver.xfiles.XFilesPlugin
+api-version: 1.21
+description: Настоящий The X-Files опыт в Minecraft с аномалиями и радиацией!
+author: YourName
+website: https://github.com/yourname/xfiles-plugin
+
+commands:
+  xfiles:
+    description: Основная команда The X-Files
+    usage: /<command> <investigate|anomaly|reactor|help>
+    aliases: [xf, x-file]
+  anomaly:
+    description: Управление аномалиями
+    usage: /<command> <create|list|remove|info>
+  reactor:
+    description: Управление ядерным реактором
+    usage: /<command> <start|stop|meltdown|status>
+  radiation:
+    description: Проверка радиации
+    usage: /<command> <check|cleanup|map>
+
+permissions:
+  xfiles.*:
+    description: Полный доступ к The X-Files
+    children:
+      xfiles.anomaly: true
+      xfiles.reactor: true
+      xfiles.radiation: true
+      xfiles.admin: true
+  xfiles.anomaly:
+    description: Управление аномалиями
+    default: op
+  xfiles.reactor:
+    description: Управление реактором
+    default: op
+  xfiles.radiation:
+    description: Управление радиацией
+    default: true
+  xfiles.admin:
+    description: Админские права
+    default: op

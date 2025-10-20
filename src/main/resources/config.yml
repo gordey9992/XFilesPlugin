@@ -1,0 +1,84 @@
+# The X-Files Plugin Configuration
+# Настройки плагина Секретные Материалы
+
+# Основные настройки
+settings:
+  # Включить систему аномалий
+  enable-anomalies: true
+  # Шанс случайной аномалии (1-100)
+  random-anomaly-chance: 20
+  # Автоматические аномалии
+  enable-auto-anomalies: true
+  # Интервал автоматических аномалий (в тиках)
+  auto-anomaly-interval: 24000
+
+# Настройки аномалий
+anomaly-settings:
+  # Максимальное количество аномалий
+  max-anomalies: 10
+  # Типы аномалий
+  types:
+    - "GRAVITATIONAL"
+    - "TEMPORAL"
+    - "RADIATION"
+    - "BIOLOGICAL"
+    - "PSYCHIC"
+    - "DIMENSIONAL"
+    - "ELECTROMAGNETIC"
+    - "QUANTUM"
+  # Радиус воздействия аномалий
+  effect-radius: 15
+  # Длительность аномалий (в тиках)
+  duration: 12000
+
+# Настройки радиации
+radiation-settings:
+  # Включить систему радиации
+  enable-radiation: true
+  # Максимальный уровень радиации
+  max-radiation-level: 100
+  # Радиус заражения
+  contamination-radius: 10
+  # Скорость распространения радиации
+  spread-speed: 1
+  # Эффекты радиации
+  radiation-effects:
+    - "POISON"
+    - "SLOW"
+    - "WEAKNESS"
+    - "NAUSEA"
+    - "BLINDNESS"
+
+# Настройки ядерного реактора
+reactor-settings:
+  # Максимальная температура реактора
+  max-temperature: 1000
+  # Критическая температура (расплавление)
+  critical-temperature: 800
+  # Скорость нагрева
+  heat-rate: 5
+  # Скорость охлаждения
+  cool-rate: 3
+  # Радиус взрыва при расплавлении
+  meltdown-blast-radius: 15
+  # Радиус радиации при расплавлении
+  meltdown-radiation-radius: 50
+
+# Эффекты и частицы
+effects:
+  # Эффекты радиации
+  radiation-particles: "ASH"
+  radiation-sound: "BLOCK_BELL_USE"
+  # Эффекты аномалий
+  anomaly-particles: "PORTAL"
+  anomaly-sound: "BLOCK_PORTAL_AMBIENT"
+  # Эффекты реактора
+  reactor-particles: "LAVA"
+  reactor-sound: "BLOCK_FURNACE_FIRE_CRACKLE"
+
+# Сообщения (можно переопределить в messages.yml)
+messages:
+  anomaly-created: "&c[АНОМАЛИЯ] &fОбнаружена аномалия типа {type} в {x}, {y}, {z}"
+  radiation-warning: "&4[РАДИАЦИЯ] &fВысокий уровень радиации! Уровень: {level}"
+  reactor-critical: "&6[РЕАКТОР] &fКритическая температура! Расплавление неизбежно!"
+  meltdown-imminent: "&4[РЕАКТОР] &fРАСПЛАВЛЕНИЕ АКТИВНО! НЕМЕДЛЕННАЯ ЭВАКУАЦИЯ!"
