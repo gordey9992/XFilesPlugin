@@ -91,8 +91,12 @@ public class AnomalyManager {
                 world.playSound(loc, Sound.BLOCK_CONDUIT_AMBIENT, 1.0f, 2.0f);
                 break;
             case "BIOLOGICAL":
-                world.spawnParticle(Particle.VILLAGER_HAPPY, loc, 40, 3, 3, 3);
+                world.spawnParticle(Particle.HAPPY_VILLAGER, loc, 40, 3, 3, 3);
                 world.playSound(loc, Sound.ENTITY_ZOMBIE_VILLAGER_CURE, 1.0f, 0.5f);
+                break;
+            case "PSYCHIC":
+                world.spawnParticle(Particle.SOUL_FIRE_FLAME, loc, 30, 2, 2, 2);
+                world.playSound(loc, Sound.ENTITY_ENDERMAN_STARE, 1.0f, 0.5f);
                 break;
             default:
                 world.spawnParticle(Particle.PORTAL, loc, 50, 3, 3, 3);
@@ -121,7 +125,7 @@ public class AnomalyManager {
                 break;
             case "TEMPORAL":
                 player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 100, 2));
-                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 100, 2));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 100, 2));
                 break;
             case "BIOLOGICAL":
                 player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 1));
@@ -129,7 +133,15 @@ public class AnomalyManager {
                 break;
             case "PSYCHIC":
                 player.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 100, 0));
-                player.addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 200, 0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.DARKNESS, 200, 0));
+                break;
+            case "ELECTROMAGNETIC":
+                player.addPotionEffect(new PotionEffect(PotionEffectType.GLOWING, 100, 0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 100, 1));
+                break;
+            case "QUANTUM":
+                player.addPotionEffect(new PotionEffect(PotionEffectType.LEVITATION, 60, 0));
+                player.addPotionEffect(new PotionEffect(PotionEffectType.CONDUIT_POWER, 100, 0));
                 break;
         }
         
@@ -142,7 +154,7 @@ public class AnomalyManager {
         if (anomalies.containsKey(id)) {
             Anomaly anomaly = anomalies.remove(id);
             // Эффект исчезновения
-            anomaly.location.getWorld().spawnParticle(Particle.SMOKE_LARGE, anomaly.location, 20);
+            anomaly.location.getWorld().spawnParticle(Particle.CLOUD, anomaly.location, 20);
             anomaly.location.getWorld().playSound(anomaly.location, Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
             return true;
         }
