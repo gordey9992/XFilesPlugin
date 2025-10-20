@@ -4,8 +4,6 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 public class ReactorManager {
@@ -74,7 +72,7 @@ public class ReactorManager {
         
         // Эффекты остановки
         if (reactorLocation != null) {
-            reactorLocation.getWorld().spawnParticle(Particle.SMOKE_LARGE, reactorLocation, 50);
+            reactorLocation.getWorld().spawnParticle(Particle.CLOUD, reactorLocation, 50);
             reactorLocation.getWorld().playSound(reactorLocation, Sound.BLOCK_FIRE_EXTINGUISH, 1.0f, 1.0f);
         }
     }
@@ -158,7 +156,7 @@ public class ReactorManager {
             world.createExplosion(reactorLocation, config.getMeltdownBlastRadius(), true);
             
             // Огненный шар
-            world.spawnParticle(Particle.EXPLOSION_HUGE, reactorLocation, 1);
+            world.spawnParticle(Particle.EXPLOSION, reactorLocation, 50, 3, 3, 3);
             
             // Радиационное заражение
             radiationManager.createRadiationZone(reactorLocation, 80);
